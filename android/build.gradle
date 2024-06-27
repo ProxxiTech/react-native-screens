@@ -33,6 +33,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+    if (agpVersion.tokenize('.')[0].toInteger() >= 7) {
+        namespace "com.swmansion.rnscreens"
+    }
+
     compileSdkVersion safeExtGet('compileSdkVersion', 28)
 
     defaultConfig {
